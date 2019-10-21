@@ -14,3 +14,24 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+// Admin route
+Route::group(['middleware' => ['status', 'auth']], function () {
+    $dropData = [
+        'namespace' => 'Blog\Admin',
+        'prefix'    => 'admin',
+    ];
+
+    Route::group($dropData, function () {
+        Route::resource('index','MainController')->names('blog.admin.index');
+    });
+
+});
+
+// Users Route
+Route::get('user/index', 'Blog\User\MainController@index');
+
