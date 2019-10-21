@@ -12,7 +12,11 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                background-image: url("{{ asset('images/chajka.jpg') }}");
+                -moz-background-size: 100% 100%; /* Firefox  */
+                -webkit-background-size: 100% 100%; /* Safari и Chrome  */
+                -o-background-size: 100% 100%; /* Opera 9.6+  */
+                background-size: 100% 100%; /* Другие браузеры  */
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -60,6 +64,13 @@
 
             .m-b-md {
                 margin-bottom: 30px;
+                color: #3490dc;
+            }
+            a {
+                color: #3490dc;
+                font-size: 16px;
+                padding: 10px;
+                margin-right: 20px;
             }
         </style>
     </head>
@@ -68,13 +79,61 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                        @if(Auth::user()->isDisabled())
+                            <strong>
+                                <a href="{{ url('/') }}" style="color: #3490dc; text-decoration: none">Главная</a>
+                            </strong>
+                        @elseif (Auth::user()->isUser())
+                            <strong>
+                                <a href="{{ url('/') }}" style="color: #3490dc; text-decoration:
+                                none">Главная</a>
+                            </strong>
+                            <strong>
+                                <a href="{{ url('user/index') }}" style="color: #3490dc; text-decoration:
+                                none">Кабинет</a>
+                            </strong>
+                        @elseif (Auth::user()->isVisitor())
+                            <strong>
+                                <a href="{{ url('/') }}" style="color: #3490dc; text-decoration:
+                                none">Главная</a>
+                            </strong>
+                        @elseif (Auth::user()->isAdministrator())
+                            <strong>
+                                <a href="{{ url('/') }}" style="color: #3490dc; text-decoration:
+                                none">Главная</a>
+                            </strong>
+                            <strong>
+                                <a href="{{ url('admin/index') }}" style="color: #3490dc; text-decoration:
+                                none">Панель Администратора</a>
+                            </strong>
                         @endif
+
+                            <strong>
+                                <a class="dropdown-item" href="{{ url('/') }}" style="color: #3490dc; text-decoration:
+                                none"
+                                   onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                    Выйти
+                                </a>
+                            </strong>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="color: #3490dc;
+                            text-decoration: none;">
+                                @csrf
+                            </form>
+
+                        @else
+                            <strong>
+                                <a href="{{ route('login') }}" style="color: #3490dc; text-decoration:
+                                    none">Войти</a>
+                            </strong>
+
+                            @if (Route::has('register'))
+                                <strong>
+                                    <a href="{{ route('register') }}" style="color: #3490dc; text-decoration:
+                                    none">Регистрация</a>
+                                </strong>
+                            @endif
                     @endauth
                 </div>
             @endif
@@ -82,16 +141,6 @@
             <div class="content">
                 <div class="title m-b-md">
                     Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
             </div>
         </div>
