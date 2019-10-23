@@ -22,7 +22,7 @@ class MainRepository extends CoreRepository
     }
 
     public static function getCountOrders() {
-        $count = DB::table('orders')->where('status', 0)->get()->count();
+        $count = DB::table('orders')->where('status', '0')->get()->count();
         return $count;
     }
     public static function getCountUsers() {

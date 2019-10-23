@@ -16,7 +16,7 @@
                 <li class="item">
                     <div class="product-img">
                         @if( !empty( $product->img) )
-                            <img src="{{ asset('uploads/single/', $product->img) }}" alt="image">
+                            <img src="{{ asset('uploads/single/'. $product->img) }}" alt="image">
                         @else
                             <img src="{{ asset('images/no_image.png') }}" alt="image">
                         @endif
