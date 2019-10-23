@@ -27,6 +27,12 @@ abstract class CoreRepository
         return $this->startConditions()->find($id);
     }
 
+    /**
+     * @param bool $get
+     * @param string $id
+     * @return int|string|null
+     * @throws \Exception
+     */
     public function getRequestID($get = true, $id = 'id') {
         if ($get) {
             $data = $_GET;
