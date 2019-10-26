@@ -29,20 +29,53 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td><a href=""><i class="fa fa-fw fa-eye"></i></a></td>
+                                @forelse($paginator as $order)
+                                    @php $class = $order->status ? 'success' : '' @endphp
+                                <tr class="{{ $class }}">
+                                    <td>{{$order->id}}</td>
+                                    <td>{{$order->name}}</td>
+                                    <td>
+                                        @if ($order->status == 0)Новый @endif
+                                        @if ($order->status == 1)Завершен @endif
+                                        @if ($order->status == 2)<b>Удален</b>@endif
+                                    </td>
+                                    <td>{{$order->sum}} {{$order->currency}}</td>
+                                    <td>{{$order->created_at}}</td>
+                                    <td>{{$order->updated_at}}</td>
+                                    <td>
+                                        <a href="{{ route('blog.admin.orders.edit', $order->id) }}"
+                                           title="редактировать
+                                        заказ"><i class="fa fa-fw fa-eye"></i></a>
+                                        <a href="" title="удалить из БД"><i class="fa fa-fw fa-close text-danger
+                                        deletebd"></i></a>&nbsp;
+                                    </td>
+
                                 </tr>
+                                    @empty
+                                        <tr>
+                                            <td class="text-center" colspan="3"><h2>Заказов нет</h2></td>
+                                        </tr>
+
+                                @endforelse
                                 </tbody>
                             </table>
-                            <div class="text-center">
-                                <p>заказа(ов) из</p>
-                            </div>
+                        </div>
+                        <div class="text-center">
+                            {{--<p>{{ count([$paginator])}} заказа(ов) из {{ count([$countOrders])}}</p>--}}
+
+                            @if ( $paginator->total() > $paginator->count())
+                                <br>
+                                <div class="row justify-content-center">
+                                    <div class="col-md-12">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                {{$paginator->links()}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+
                         </div>
                     </div>
                 </div>
