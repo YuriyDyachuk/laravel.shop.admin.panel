@@ -15,7 +15,7 @@
 
     @if( $item->hasChildren())
         <div class="list-group">
-            @include( env('THEME').'blog.admin.category.menu.customMenuItem', ['items' => $item->children()])
+            @include( env('THEME').'blog.admin.category.menu.customMenuItems', ['items' => $item->children()])
         </div>
     @endif
 @endforeach

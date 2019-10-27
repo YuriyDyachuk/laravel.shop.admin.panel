@@ -20,7 +20,7 @@
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{asset('adminlte/dist/css/skins/_all-skins.min.css')}}" type="text/css">
 
-    {{--<link rel="stylesheet" href="{{asset('css/my.css')}}">--}}
+    <link rel="stylesheet" href="{{asset('css/my.css')}}" type="text/css">
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,
