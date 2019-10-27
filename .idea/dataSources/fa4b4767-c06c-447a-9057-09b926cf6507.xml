@@ -1654,27 +1654,27 @@ product_id</ColNames>
     </column>
     <column id="398" parent="338" name="path">
       <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>varchar(191)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="399" parent="338" name="metatagable_id">
+    <column id="399" parent="338" name="model_id">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="400" parent="338" name="metatagable_type">
+    <column id="400" parent="338" name="model_type">
       <Position>4</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>varchar(191)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="401" parent="338" name="title">
       <Position>5</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>varchar(191)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="402" parent="338" name="keywords">
       <Position>6</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>varchar(191)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="403" parent="338" name="description">
@@ -1684,7 +1684,7 @@ product_id</ColNames>
     </column>
     <column id="404" parent="338" name="h1">
       <Position>8</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>varchar(191)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="405" parent="338" name="seo_text">
@@ -1694,7 +1694,7 @@ product_id</ColNames>
     </column>
     <column id="406" parent="338" name="canonical">
       <Position>10</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>varchar(191)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="407" parent="338" name="robots">
@@ -1736,7 +1736,7 @@ product_id</ColNames>
     </column>
     <column id="414" parent="339" name="migration">
       <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1863,13 +1863,13 @@ product_id</ColNames>
     </key>
     <column id="436" parent="342" name="email">
       <Position>1</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="437" parent="342" name="token">
       <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -2025,7 +2025,7 @@ related_id</ColNames>
     </column>
     <column id="465" parent="345" name="name">
       <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -2088,13 +2088,13 @@ related_id</ColNames>
     </column>
     <column id="476" parent="347" name="name">
       <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="477" parent="347" name="email">
       <Position>3</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -2105,7 +2105,7 @@ related_id</ColNames>
     </column>
     <column id="479" parent="347" name="password">
       <Position>5</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
