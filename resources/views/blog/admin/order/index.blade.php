@@ -61,7 +61,7 @@
                             </table>
                         </div>
                         <div class="text-center">
-                            <p>{{ count($paginator)}} заказа(ов) из {{ ($countOrders)}}</p>
+                            <p>{{ count($paginator) }} заказа(ов) из {{ $countOrders}}</p>
 
                             @if ( $paginator->total() > $paginator->count())
                                 <br>
