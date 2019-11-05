@@ -34,7 +34,7 @@ class AdminCategoryUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.min' => 'Минимаальное имя 4 символа',
+            'title.min' => 'Минимальное имя 4 символа',
             'description.min' => 'Минимальная длина описания 5 символов',
             'description.string' => 'Описание должно быть текстом',
         ];
