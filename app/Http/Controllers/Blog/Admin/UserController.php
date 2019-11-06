@@ -7,6 +7,7 @@ use App\Models\Admin\User;
 use App\Models\UserRole;
 use App\Repositories\Admin\MainRepository;
 use App\Repositories\Admin\UserRepository;
+use Illuminate\Http\Response;
 use MetaTag;
 
 class UserController extends AdminBaseController
@@ -71,6 +72,16 @@ class UserController extends AdminBaseController
 
     }
 
+    /**
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+
     public function edit($id)
     {
         $perpage = 5;
@@ -82,10 +93,10 @@ class UserController extends AdminBaseController
         $orders = $this->userRepository->getUserOrders($id, $perpage);
         $role = $this->userRepository->getUserRole($id);
         $count = $this->userRepository->getCountOrdersUs($id);
-        $count_orders = $this->userRepository->getCountOrder($id, $perpage);
+        $count_orders = $this->userRepository->getCountOrders($id, $perpage);
 
 
-        MetaTag::setTags(['title' => "Редактирование пользователя № {$item->id}"]);
+        MetaTag::setTags(['title' => 'Редактирование пользователя']);
         return view('blog.admin.user.edit', compact('item','orders', 'role', 'count', 'count_orders'));
 
     }
@@ -111,9 +122,24 @@ class UserController extends AdminBaseController
 
     }
 
+    /**
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
 
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        // Delete in DB
+        $result = $user->forceDelete();
+        if($result) {
+            return redirect()
+                ->route('blog.admin.users.index')
+                ->with(['success' => "Пользователь " . ucfirst($user->name) . " удален"]);
+        } else {
+            return back()
+                ->withErrors(['msg' => 'Что то пошло не так!']);
+        }
+
     }
+
 }

@@ -17,11 +17,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box">
-                    <div action="{{ route('blog.admin.users.update', $item->id) }}" method="POST"
+                    <form action="{{ route('blog.admin.users.update', $item->id) }}" method="POST"
                         data-toggle="validator">
                         @method('PUT')
                         @csrf
-                        <form class="box-body">
+                        <div class="box-body">
                             <div class="form-group has-feedback">
                                 <label for="login">Логин <small style="font-size: small; font-weight: normal ">меняется
                                         автоматически</small></label>
@@ -65,8 +65,8 @@
                                 <input type="hidden" name="id" value="{{ $item->id }}">
                                 <button type="submit" class="btn btn-primary">Сохранить</button>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                     <h3>Заказы пользователя</h3>
                     <div class="box">
                         <div class="box-body">
@@ -94,8 +94,8 @@
                                                 <td>{{ $order->sum }} {{ $order->currency }}</td>
                                                 <td>{{ $order->created_at }}</td>
                                                 <td>{{ $order->updated_at }}</td>
-                                                <td><a href="{{ route('blog.admin.orders.edit', $order->id) }}"><i
-                                                            class="fa fa-fw fa-eye"></i></a></td>
+                                                <td><a href="{{ route('blog.admin.orders.edit', $order->id) }}"
+                                                       title="редактировать заказ"><i class="fa fa-fw fa-eye"></i></a></td>
                                             </tr>
                                         @endforeach
                                         </tbody>

@@ -66,7 +66,7 @@ class UserRepository extends CoreRepository
         return $count;
     }
 
-    public function getCountOrder($user_id, $perpage) {
+    public function getCountOrders($user_id, $perpage) {
         $count = DB::table('orders')
             ->where('user_id', $user_id)
             ->limit($perpage)
