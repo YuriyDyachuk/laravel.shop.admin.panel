@@ -46,12 +46,14 @@
                                             <a href="{{ route('blog.admin.users.edit', $user->id) }}"
                                                title="Просмотреть пользователя">
                                                 <i class="btn btn-xs"></i>
-                                                <button class="btn btn-success btn-xs">Просмотреть</button>
+                                                <button type="submit" class="btn btn-success
+                                                btn-xs">Просмотреть</button>
                                             </a>
                                             &nbsp;
 
                                             <a class="btn btn-xs">
-                                                <form action="{{ route('blog.admin.users.destroy', $user->id)}}"
+                                                <form method="POST" action="{{ route('blog.admin.users.destroy',
+                                                $user->id)}}"
                                                       style="float: none">
                                                     @method('DELETE')
                                                     @csrf
