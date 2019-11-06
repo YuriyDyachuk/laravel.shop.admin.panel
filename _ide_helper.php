@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.8.35 on 2019-10-21 14:19:46.
+ * Generated for Laravel 5.8.35 on 2019-10-26 18:15:12.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -1808,7 +1808,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Get the currently authenticated user.
          *
-         * @return \App\User|null 
+         * @return \App\Models\User|null 
          * @static 
          */ 
         public static function user()
@@ -1846,7 +1846,7 @@ namespace Illuminate\Support\Facades {
          * Log the given user ID into the application without sessions or cookies.
          *
          * @param mixed $id
-         * @return \App\User|false 
+         * @return \App\Models\User|false 
          * @static 
          */ 
         public static function onceUsingId($id)
@@ -1915,7 +1915,7 @@ namespace Illuminate\Support\Facades {
          *
          * @param mixed $id
          * @param bool $remember
-         * @return \App\User|false 
+         * @return \App\Models\User|false 
          * @static 
          */ 
         public static function loginUsingId($id, $remember = false)
@@ -1982,7 +1982,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Get the last user we attempted to authenticate.
          *
-         * @return \App\User 
+         * @return \App\Models\User 
          * @static 
          */ 
         public static function getLastAttempted()
@@ -2093,7 +2093,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Return the currently cached user.
          *
-         * @return \App\User|null 
+         * @return \App\Models\User|null 
          * @static 
          */ 
         public static function getUser()
@@ -2143,7 +2143,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Determine if current user is authenticated. If not, throw an exception.
          *
-         * @return \App\User 
+         * @return \App\Models\User 
          * @throws \Illuminate\Auth\AuthenticationException
          * @static 
          */ 
@@ -14757,6 +14757,109 @@ namespace Fomvasss\LaravelMetaTags {
  
 }
 
+namespace Lavary\Menu { 
+
+    /**
+     * 
+     *
+     */ 
+    class Facade {
+        
+        /**
+         * Check if a menu builder exists.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function exists($name)
+        {
+                        /** @var \Lavary\Menu\Menu $instance */
+                        return $instance->exists($name);
+        }
+        
+        /**
+         * Create a new menu builder instance.
+         *
+         * @param string $name
+         * @param callable $callback
+         * @return \Lavary\Menu\Builder 
+         * @static 
+         */ 
+        public static function makeOnce($name, $callback)
+        {
+                        /** @var \Lavary\Menu\Menu $instance */
+                        return $instance->makeOnce($name, $callback);
+        }
+        
+        /**
+         * Create a new menu builder instance.
+         *
+         * @param string $name
+         * @param callable $callback
+         * @return \Lavary\Menu\Builder 
+         * @static 
+         */ 
+        public static function make($name, $callback)
+        {
+                        /** @var \Lavary\Menu\Menu $instance */
+                        return $instance->make($name, $callback);
+        }
+        
+        /**
+         * Loads and merges configuration data.
+         *
+         * @param string $name
+         * @return array 
+         * @static 
+         */ 
+        public static function loadConf($name)
+        {
+                        /** @var \Lavary\Menu\Menu $instance */
+                        return $instance->loadConf($name);
+        }
+        
+        /**
+         * Return Menu builder instance from the collection by key.
+         *
+         * @param string $key
+         * @return \Lavary\Menu\Builder 
+         * @static 
+         */ 
+        public static function get($key)
+        {
+                        /** @var \Lavary\Menu\Menu $instance */
+                        return $instance->get($key);
+        }
+        
+        /**
+         * Return Menu builder collection.
+         *
+         * @return \Illuminate\Support\Collection 
+         * @static 
+         */ 
+        public static function getCollection()
+        {
+                        /** @var \Lavary\Menu\Menu $instance */
+                        return $instance->getCollection();
+        }
+        
+        /**
+         * Alias for getCollection.
+         *
+         * @return \Illuminate\Support\Collection 
+         * @static 
+         */ 
+        public static function all()
+        {
+                        /** @var \Lavary\Menu\Menu $instance */
+                        return $instance->all();
+        }
+         
+    }
+ 
+}
+
 
 namespace  { 
 
@@ -17552,6 +17655,8 @@ namespace  {
     class View extends \Illuminate\Support\Facades\View {}
 
     class MetaTag extends \Fomvasss\LaravelMetaTags\Facade {}
+
+    class Menu extends \Lavary\Menu\Facade {}
  
 }
 

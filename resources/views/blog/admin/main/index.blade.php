@@ -1,21 +1,7 @@
 @extends('layouts.app_admin')
 
 @section('content')
-   {{-- <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Dashboard</div>
 
-                    <div class="card-body">
-
-                        You are logged in {{ Auth::user()->name }} !
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>--}}
     <section class="content-header">
         @component('blog.admin.components.breadcrumb')
             @slot('title') Панель управления @endslot
@@ -37,7 +23,7 @@
                    <div class="icon">
                        <i class="ion ion-bag"></i>
                    </div>
-                   <a href="{{--{{ route('blog.admin.orders.index') }}--}}" class="small-box-footer">More info<i
+                   <a href="{{ route('blog.admin.orders.index') }}" class="small-box-footer">More info<i
                            class="fa fa-arrow-circle-right"></i></a>
                </div>
            </div>
@@ -65,7 +51,7 @@
                    <div class="icon">
                        <i class="ion ion-person-add"></i>
                    </div>
-                   <a href="{{--{{ route('blog.admin.users.index') }}--}}" class="small-box-footer">More info<i
+                   <a href="{{ route('blog.admin.users.index') }}" class="small-box-footer">More info<i
                            class="fa fa-arrow-circle-right"></i></a>
                </div>
            </div>
@@ -79,7 +65,7 @@
                    <div class="icon">
                        <i class="ion ion-pie-graph"></i>
                    </div>
-                   <a href="{{--{{ route('blog.admin.categories.index') }}--}}" class="small-box-footer">More info<i
+                   <a href="{{ route('blog.admin.categories.index') }}" class="small-box-footer">More info<i
                            class="fa fa-arrow-circle-right"></i></a>
                </div>
            </div>

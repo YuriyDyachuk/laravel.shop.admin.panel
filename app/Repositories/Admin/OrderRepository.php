@@ -30,7 +30,7 @@ class OrderRepository extends CoreRepository
                 ->join('order_products','order_products.order_id','=','orders.id')
                 ->select('orders.id','orders.user_id','orders.status','orders.created_at',
                     'orders.updated_at','orders.currency','users.name',
-                    \DB::raw('ROUND(SUM(order_products.price),2) AS sum '))
+                    DB::raw('ROUND(SUM(order_products.price),2) AS sum '))
                 ->GROUPBY('orders.id')
                 ->orderBy('orders.status')
                 ->orderBy('orders.id')
@@ -44,7 +44,7 @@ class OrderRepository extends CoreRepository
             ->join('users','orders.user_id','=','users.id')
             ->join('order_products','order_products.order_id','=','orders.id')
             ->select('orders.*', 'users.name',
-                \DB::raw('ROUND(SUM(order_products.price),2) AS sum '))
+                DB::raw('ROUND(SUM(order_products.price),2) AS sum '))
             ->where('orders.id', $order_id)
             ->GROUPBY('orders.id')
             ->orderBy('orders.status')
@@ -69,6 +69,27 @@ class OrderRepository extends CoreRepository
         $item->status = !empty($_GET['status']) ? '1' : '0';
         $result = $item->update();
         return $result;
+    }
+
+    public function changeStatusOnDelete($id) {
+        $item = $this->getId($id);
+        if (!$item) {
+            abort(404);
+        }
+        $item->status = '2';
+        $result = $item->update();
+        return $result;
+
+    }
+    public function saveOrderComment($id) {
+        $item = $this->getId($id);
+        if (!$item) {
+            abort(404);
+        }
+        $item->note = !empty($_POST['comment']) ? $_POST['comment'] : null;
+        $result = $item->update();
+        return $result;
+
     }
 
 

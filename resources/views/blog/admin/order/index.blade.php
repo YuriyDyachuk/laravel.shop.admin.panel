@@ -29,7 +29,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @forelse($paginator as $order)
+                                @forelse( $paginator as $order)
                                     @php $class = $order->status ? 'success' : '' @endphp
                                 <tr class="{{ $class }}">
                                     <td>{{$order->id}}</td>
@@ -37,17 +37,17 @@
                                     <td>
                                         @if ($order->status == 0)Новый @endif
                                         @if ($order->status == 1)Завершен @endif
-                                        @if ($order->status == 2)<b>Удален</b>@endif
+                                        @if ($order->status == 2)<b style="color: #9f191f">Удален</b>@endif
                                     </td>
                                     <td>{{$order->sum}} {{$order->currency}}</td>
                                     <td>{{$order->created_at}}</td>
                                     <td>{{$order->updated_at}}</td>
                                     <td>
                                         <a href="{{ route('blog.admin.orders.edit', $order->id) }}"
-                                           title="редактировать
-                                        заказ"><i class="fa fa-fw fa-eye"></i></a>
-                                        <a href="" title="удалить из БД"><i class="fa fa-fw fa-close text-danger
-                                        deletebd"></i></a>&nbsp;
+                                           title="редактировать заказ"><i class="fa fa-fw fa-eye"></i></a>
+                                        <a href="{{ route('blog.admin.orders.forcedestroy', $order->id) }}"
+                                           title="удалить из БД"><i class="fa fa-fw fa-close text-danger deletebd"
+                                            ></i></a>&nbsp;
                                     </td>
 
                                 </tr>
@@ -61,7 +61,7 @@
                             </table>
                         </div>
                         <div class="text-center">
-                            {{--<p>{{ count([$paginator])}} заказа(ов) из {{ count([$countOrders])}}</p>--}}
+                            <p>{{ count($paginator) }} заказа(ов) из {{ $countOrders}}</p>
 
                             @if ( $paginator->total() > $paginator->count())
                                 <br>

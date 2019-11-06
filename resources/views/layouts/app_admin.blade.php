@@ -9,18 +9,18 @@
 	<!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="{{asset('adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css')}}" type="text/css">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{asset('adminlte/bower_components/font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('adminlte/bower_components/font-awesome/css/font-awesome.min.css')}}" type="text/css">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="{{asset('adminlte/bower_components/Ionicons/css/ionicons.min.css')}}">
+    <link rel="stylesheet" href="{{asset('adminlte/bower_components/Ionicons/css/ionicons.min.css')}}" type="text/css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{asset('adminlte/dist/css/AdminLTE.min.css')}}">
+    <link rel="stylesheet" href="{{asset('adminlte/dist/css/AdminLTE.min.css')}}" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="{{asset('adminlte/dist/css/skins/_all-skins.min.css')}}">
+    <link rel="stylesheet" href="{{asset('adminlte/dist/css/skins/_all-skins.min.css')}}" type="text/css">
 
-    {{--<link rel="stylesheet" href="{{asset('css/my.css')}}">--}}
+    <link rel="stylesheet" href="{{asset('css/my.css')}}" type="text/css">
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,
@@ -124,8 +124,8 @@
               </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="">Список категорий</a></li>
-                        <li><a href="">Добавить категорию</a></li>
+                        <li><a href="{{ route('blog.admin.categories.index') }}">Список категорий</a></li>
+                        <li><a href="{{ route('blog.admin.categories.create') }}">Добавить категорию</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -147,8 +147,8 @@
               </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="">Список пользователей</a></li>
-                        <li><a href="">Добавить пользователя</a></li>
+                        <li><a href="{{ route('blog.admin.users.index') }}">Список пользователей</a></li>
+                        <li><a href="{{ route('blog.admin.users.create') }}">Добавить пользователя</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -231,6 +231,8 @@
 
 <!-- AdminLTE App -->
 <script src="{{asset('adminlte/dist/js/adminlte.min.js')}}"></script>
+
+<script src="{{asset('js/my.js')}}"></script>
 
 <!-- === = ===  -->
 
