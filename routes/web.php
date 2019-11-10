@@ -43,6 +43,8 @@ Route::group(['middleware' => ['status', 'auth']], function () {
 
         Route::resource('users', 'UserController')->names('blog.admin.users');
 
+        Route::resource('product', 'ProductController')->names('blog.admin.products');
+
 
 
 
