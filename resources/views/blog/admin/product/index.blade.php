@@ -39,24 +39,24 @@
                                         <td>{{$product->status ? 'On' : 'Off'}}</td>
 
                                         <td>
-                                            <a href="{{ route('blog.admin.products.edit', $product->id) }}"
+                                            <a href="{{--{{ route('blog.admin.products.edit', $product->id) }}--}}"
                                                title="редактировать"><i class="fa fa-fw fa-eye"></i></a>
 
                                             @if ($product->status == 0)
-                                            <a class="delete" href="{{ route('blog.admin.products.returnstatus',
-                                            $$product->id) }}"
+                                            <a class="delete" href="{{--{{ route('blog.admin.products.returnstatus',
+                                            $$product->id) }--}}}"
                                                title="Перевести статус = On"><i class="fa fa-fw fa-refresh"
                                                 ></i></a>&nbsp;
                                             @else
-                                                <a class="delete" href="{{ route('blog.admin.products.deletestatus',
-                                            $$product->id) }}"
+                                                <a class="delete" href="{{--{{ route('blog.admin.products.deletestatus',
+                                            $$product->id) }--}}}"
                                                    title="Перевести статус = Off"><i class="fa fa-fw fa-close"
                                                     ></i></a>
                                             @endif
 
                                             @if ($product)
-                                                <a class="delete" href="{{ route('blog.admin.products.deleteproduct',
-                                            $$product->id) }}"
+                                                <a class="delete" href="{{--{{ route('blog.admin.products.deleteproduct',
+                                            $$product->id) }}--}}"
                                                    title="Удалить из БД"><i class="fa fa-fw fa-close text-danger"
                                                     ></i></a>
                                             @endif
@@ -68,7 +68,7 @@
                             </table>
                         </div>
                         <div class="text-center">
-                           {{-- <p>{{ count($getAllProducts) }} пользователей из {{ $count_product}} </p>
+                            <p>{{ count($getAllProducts) }} пользователей из {{ $count_product}} </p>
                             <br>
                             @if ( $getAllProducts->total() > $getAllProducts->count())
                                 <div class="row justify-content-center">
@@ -80,7 +80,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endif--}}
+                            @endif
                         </div>
                     </div>
                 </div>

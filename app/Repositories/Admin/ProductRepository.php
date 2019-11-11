@@ -10,7 +10,7 @@ namespace App\Repositories\Admin;
 
 use App\Models\Admin\Product as Model;
 use App\Repositories\CoreRepository;
-use DB;
+
 
 class ProductRepository extends CoreRepository
 {
@@ -36,8 +36,8 @@ class ProductRepository extends CoreRepository
     {
         $get_all = $this->startConditions()
             ->join('categories','products.category_id','=','categories.id')
-            ->select('products','categories.title AS cat')
-            ->orderBy(DB::raw('LENGTH(products.title)','products.title'))
+            ->select('products.*', 'categories.title AS cat')
+            ->orderBy(\DB::raw('LENGTH(products.title)','products.title'))
             ->limit($perpage)
             ->paginate($perpage);
         return $get_all;
