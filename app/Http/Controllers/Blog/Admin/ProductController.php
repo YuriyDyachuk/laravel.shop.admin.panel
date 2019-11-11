@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Blog\Admin;
 
+use App\Models\Admin\Category;
 use App\Repositories\Admin\ProductRepository;
 use MetaTag;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class ProductController extends AdminBaseController
 {
@@ -19,7 +19,7 @@ class ProductController extends AdminBaseController
 
     public function index()
     {
-        $perpage = 10;
+        $perpage = 7;
         $getAllProducts = $this->productRepository->getAllProducts($perpage);
         $count_product = $this->productRepository->getCountProducts();
 
@@ -35,7 +35,17 @@ class ProductController extends AdminBaseController
      */
     public function create()
     {
-        //
+        $item = new Category();
+
+        MetaTag::setTags(['title' => 'Создание нового продукта']);
+        return view('blog.admin.product.create', [
+            'categories' => Category::with('children')
+                            ->where('parent_id', '0')
+                            ->get(),
+            'delimiter' => '-',
+            'item'      => $item,
+
+        ]);
     }
 
     /**
