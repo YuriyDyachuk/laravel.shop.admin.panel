@@ -71,7 +71,8 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="{{--{{route('blog.admin.users.edit',Auth::user()->id)}}--}}" class="btn btn-default btn-flat">Профиль</a>
+                                    <a href="{{route('blog.admin.users.edit',Auth::user()->id)}}" class="btn
+                                    btn-default btn-flat">Профиль</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -135,11 +136,11 @@
               </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="">Список товаров</a></li>
-                        <li><a href="">Добавить товар</a></li>
+                        <li><a href="{{ route('blog.admin.products.index') }}">Список товаров</a></li>
+                        <li><a href="{{ route('blog.admin.products.create') }}">Добавить товар</a></li>
                     </ul>
                 </li>
-                <li><a href=""><i class="fa fa-database"></i> <span>Кэширование</span></a></li>
+                <li><a href="#"><i class="fa fa-database"></i> <span>Кэширование</span></a></li>
                 <li class="treeview">
                     <a href="#"><i class="fa fa-users"></i> <span>Пользователи</span>
                         <span class="pull-right-container">
@@ -158,8 +159,8 @@
 </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="">Список валют</a></li>
-                        <li><a href="">Добавить валюту</a></li>
+                        <li><a href="#">Список валют</a></li>
+                        <li><a href="#">Добавить валюту</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -169,8 +170,8 @@
 </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="">Группы фильтров</a></li>
-                        <li><a href="">Фильтры</a></li>
+                        <li><a href="#">Группы фильтров</a></li>
+                        <li><a href="#">Фильтры</a></li>
                     </ul>
                 </li>
             </ul>
@@ -231,6 +232,10 @@
 
 <!-- AdminLTE App -->
 <script src="{{asset('adminlte/dist/js/adminlte.min.js')}}"></script>
+
+<!-- Редактор текста  -->
+<script src="{{asset('adminlte/bower_components/ckeditor/ckeditor.js')}}"></script>
+<script src="{{asset('adminlte/bower_components/ckeditor/adapters/jquery.js')}}"></script>
 
 <script src="{{asset('js/my.js')}}"></script>
 
