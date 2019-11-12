@@ -17,7 +17,7 @@
         $host = $_SERVER['HTTP_HOST'];
     }
 
-    $allowed_hosts = 'http://laravel.admin.com/index.php';
+    $allowed_hosts = 'http://laravel.admin.panel.com/index.php';
 
 
     $app_path = preg_replace("#[^/]+$#", '', $allowed_hosts);

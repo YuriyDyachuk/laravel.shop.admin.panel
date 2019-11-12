@@ -34,4 +34,5 @@ $('.sidebar-menu a').each(function () {
 
 // language=JQuery-CSS
 /** KCEditor */
-$('#editor1').ckeditor();
+        $('#editor1').ckeditor();
+    //var editor = CKEDITOR.replace( 'editor1' );

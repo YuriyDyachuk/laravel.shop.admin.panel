@@ -64,7 +64,7 @@
 
                             <div class="form-group has-feedback">
                                 <label for="content">Контент</label>
-                                <textarea name="content" id="editor1" cols="80" rows="10">{{old('content')}}</textarea>
+                                <textarea name="editor1" id="editor1" cols="80" rows="10">{{old('content')}}</textarea>
                             </div>
 
                             <div class="form-group">
